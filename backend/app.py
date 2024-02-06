@@ -21,12 +21,6 @@ from scripts import getTest
 app = Flask(__name__)
 CORS(app)
 
-# the Flask app is started with the host set to '0.0.0.0'
-# (meaning it listens on all available network interfaces)
-# and port 5000.
-if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
-
 #  An endpoint is defined at the root URL ("/")
 #  using the @app.route decorator.
 #  This route only handles HTTP GET requests
@@ -46,3 +40,8 @@ def test():
     dataFrame = getTest(2,4)
     return jsonify(dataFrame.to_json(orient = "split"))
 
+# the Flask app is started with the host set to '0.0.0.0'
+# (meaning it listens on all available network interfaces)
+# and port 5000.
+if __name__ == "__main__":
+    app.run(host='0.0.0.0', port=5000)
