@@ -22,9 +22,8 @@ def gettiktokdata():
    keyword = jsonData['keyword']
    region = jsonData['region']
    sort = jsonData['sort']
-   count = jsonData['countPost']
    dataPostagem = jsonData['dataPostagem']
-   data_full = search_tiktok(keyword, region, sort, count, dataPostagem)
+   data_full = search_tiktok(keyword, region, sort, dataPostagem)
 
    return jsonify(data_full)   
 

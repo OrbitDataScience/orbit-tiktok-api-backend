@@ -19,7 +19,7 @@ def salvar_csv(dados, nome_arquivo):
     df.to_csv(nome_arquivo + '.csv', sep=';', index_label='Video')
 
 # Busca as postagens do TikTok com base nos filtros
-def search_tiktok(keyword, region, sort, count, dataPostagem):
+def search_tiktok(keyword, region, sort, dataPostagem):
     headers = {
         "X-RapidAPI-Key": "88b5804da0mshaec086ad3147560p16ac64jsn608ec3c7f56c",
         "X-RapidAPI-Host": "tiktok-video-no-watermark10.p.rapidapi.com"
@@ -35,7 +35,7 @@ def search_tiktok(keyword, region, sort, count, dataPostagem):
     while has_more:
 
         url = "https://tiktok-video-no-watermark10.p.rapidapi.com/index/Tiktok/searchVideoListByKeywords"
-        querystring = {"keywords":keyword,"cursor":cursor,"region":region,"publish_time":dataPostagem,"count":count,"sort_type":sort}
+        querystring = {"keywords":keyword,"cursor":cursor,"region":region,"publish_time":dataPostagem,"count":"30","sort_type":sort}
 
         response = requests.get(url, headers=headers, params=querystring)
         json_response = response.json()
